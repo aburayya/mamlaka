@@ -121,6 +121,14 @@ box-sizing: border-box;
   animation: rotate var(--speed) linear infinite;
   transition: filter 0.3s ease;
   cursor: pointer;
+ /* new
+pointer-events: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+-webkit-user-drag: none;
+ /* disables iOS image menu */
+
+
 }
 
 .hero-svg:hover {
@@ -465,4 +473,23 @@ box-sizing: border-box;
   color: var(--accent);
   text-align: left;
   padding-left: 4px;
+}
+/*new
+@media (max-width: 768px) {
+  .hero-svg {
+    width: 80px;   /* smaller size */
+    height: auto;
+  }
+/* Smaller cards on mobile */
+.premium-carousel .card {
+  min-width: 240px;
+  height: 160px;
+  border-radius: 10px;
+}
+/* Smaller carousel buttons on mobile */
+.carousel-btn {
+  padding: 8px 10px;
+  font-size: 1rem;
+  border-radius: 40px;
+}
 }
