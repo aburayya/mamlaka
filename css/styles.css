@@ -1,0 +1,468 @@
+:root {
+  --accent: #ef2e33ff;       /* main brand color */
+  --accent-dark: #c42025ff;  /* darker shade for hover */
+  --text-light: #f5f5f5;
+  --text-dark: #1a1a1a;
+  --text-muted: #555;
+
+  --bg-dark: #111;
+  --bg-light: #fafafa;
+
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 32px;
+  --space-lg: 60px;
+  --space-xl: 120px;
+
+  --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-dark);
+  color: var(--text-light);
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Header */
+
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 18px 60px;
+  background: rgba(20, 20, 20, 0.95);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-light);
+  letter-spacing: 1px;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+.main-nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--accent);
+}
+
+/* Layout helpers */
+
+.page-content {
+  padding-top: 90px; /* header offset */
+}
+
+/* Home hero */
+
+.hero {
+  height: 100vh;
+  width: 100%;
+  background-image: url('../assets/darkwood.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+
+text-align: center;
+padding-top: 80px; /* offset for fixed header */
+box-sizing: border-box;
+
+  align-items: center;
+  transition: filter 0.4s ease;
+  filter: brightness(0.85);
+}
+
+.hero-content {
+  text-align: center;
+  color: #f5f5f5;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.hero-svg {
+  --speed: 18s;
+  width: 180px;
+  animation: rotate var(--speed) linear infinite;
+  transition: filter 0.3s ease;
+  cursor: pointer;
+}
+
+.hero-svg:hover {
+  --speed: 3s;
+  filter: brightness(1.14);
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hero-title {
+  margin-top: 20px;
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Intro section */
+
+.intro {
+  padding: var(--space-xl) 60px;
+  background: var(--bg-light);
+  text-align: center;
+}
+
+.intro h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--text-dark);
+}
+
+.intro p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* Small page hero */
+
+.page-hero-small {
+  padding: 120px 60px 60px;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  text-align: left;
+}
+
+.page-hero-small.dark {
+  background: #181818;
+  color: var(--text-light);
+}
+
+.page-hero-small h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.page-hero-small p {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+}
+
+/* Products – carousels */
+
+.product-section {
+  padding: 80px 60px;
+  background: var(--bg-light);
+}
+
+.product-section:nth-of-type(even) {
+  background: #f0f0f0;
+}
+
+.product-section h2 {
+  margin-bottom: 20px;
+  color: var(--text-dark);
+  font-size: 1.8rem;
+}
+
+.carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.carousel-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.carousel-track::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.carousel-track img {
+  width: 320px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.carousel-track img:hover {
+  transform: scale(1.05);
+}
+
+.carousel button {
+  background: var(--accent);
+  border: none;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  color: white;
+  font-size: 1.4rem;
+  transition: background 0.3s ease;
+  flex-shrink: 0;
+}
+
+.carousel button:hover {
+  background: var(--accent-dark);
+}
+
+
+
+/* Projects gallery */
+
+.projects-gallery {
+  padding: 100px 60px;
+  background: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.projects-gallery h2 {
+  font-size: 1.9rem;
+  margin-bottom: 30px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* Contact */
+
+.contact-section {
+  padding: 100px 60px;
+  background: var(--bg-light);
+  color: var(--text-dark);
+}
+
+.contact-container {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.contact-form {
+  flex: 1 1 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: var(--font-main);
+}
+
+.contact-form button {
+  background: var(--accent);
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: var(--accent-dark);
+}
+
+.contact-details {
+  flex: 1 1 220px;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* Footer */
+
+.site-footer {
+  padding: 20px 60px;
+  background: #101010;
+  color: #aaa;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .main-header {
+    padding: 14px 20px;
+  }
+
+  .main-nav ul {
+    gap: 20px;
+  }
+
+  .hero-title {
+    font-size: 1.9rem;
+  }
+
+  .intro,
+  .page-hero-small,
+  .product-section,
+  .projects-gallery,
+  .contact-section,
+  .site-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .contact-container {
+    flex-direction: column;
+  }
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 28px;
+  height: 3px;
+  background: var(--text-light);
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+@media (max-width: 768px) {
+
+  .main-nav {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background: rgba(20,20,20,0.97);
+    padding: 20px 0;
+    display: none;
+    text-align: center;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* When menu is open */
+  .main-nav.open {
+    display: block;
+  }
+
+  /* Hamburger animation */
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+.home-bg {
+  background-image: url('../assets/darkwood.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.logo img {
+  height: 60px;        /* adjust as needed */
+  width: auto;
+  display: block;
+}
+
+.project-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-align: left;
+  padding-left: 4px;
+}
